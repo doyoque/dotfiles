@@ -43,3 +43,7 @@ export OPENAI_SECRET_KEY=
 alias cc="gcc -Wall -save-temps"
 alias cpp="g++ -Wall -save-temps"
 alias stdc="echo -e '#include <iostream>\n\nint main() {\n\tprintf(\"hello world\");\n\treturn 0;\n}'"
+
+# some Github guide refer the pbcopy command but turns out it's only available on macOS
+alias pbcopy='xsel --clipboard --input'
+
