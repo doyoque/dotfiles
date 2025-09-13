@@ -97,7 +97,6 @@ colorscheme tokyonight
 nnoremap <C-[> :nohlsearch<CR><Esc>
 nnoremap <C-t> :terminal<CR>
 nnoremap <C-f> :Files<CR>
-nnoremap <C-x> :bd<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -119,6 +118,26 @@ nnoremap <C-n> :NERDTreeToggle<CR><C-w>p
 nnoremap <S-L> :bnext<cr>
 nnoremap <S-H> :bprevious<cr>
 autocmd BufEnter NERD_tree_* | execute 'normal R'
+
+" Smart buffer delete
+" when there is multiple buffer, if :bd being perform, move to prev buffer
+" if only a single buffer, create new buffer
+function! SmartBD()
+  let l:listed = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+
+  if len(l:listed) > 1
+    " More than one buffer: go to previous then delete current
+    execute 'bprevious'
+    execute 'bdelete #'
+  else
+    " Only one buffer left: create a new empty buffer
+    enew
+  endif
+endfunction
+
+" Map <C-x> in normal mode
+nnoremap <silent> <C-x> :call SmartBD()<CR>
+
 
 " :Array {start} {end} {bracket}
 command! -nargs=+ Array call s:Array(<f-args>)
