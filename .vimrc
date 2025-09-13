@@ -1,3 +1,21 @@
+" =====================================================================================================
+" This is some simple gude of customization shortcut/combination in case you do not understand (like me)
+"
+" buffer: some files that you currently open
+" C: ctrl button
+" S: shift button
+"
+" :Array 1 10 { -> in normal mode type this command to automatically generate
+" number in desire limit, separated by coma, and put it in desire brackets
+" (can be square braces, curly braces, parenthesis, and <>)
+"
+" <S-L> -> shift + l button
+" <S-H> -> shift + h button
+" <C-[> -> ctrl + open square bracket button
+" <C-t> -> ctrl + t button
+" <C-_> -> ctrl + slash button 
+" and so on: I'm tired explaning same things
+" =====================================================================================================
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
