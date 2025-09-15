@@ -255,3 +255,7 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Format with clangd
 command! -nargs=0 ClangFormat :CocCommand clangd.applyFix
+
+" golang stuff
+let g:go_fmt_command = "goimports"
+
