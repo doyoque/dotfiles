@@ -73,9 +73,9 @@ set mouse=a
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*
 set pastetoggle=<F2>
 set cursorline
-set clipboard=unnamedplus
 
 call plug#begin('~/.vim/plugged')
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf.vim'
@@ -86,6 +86,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'yaegassy/coc-volar', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'yaegassy/coc-volar-tools', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
 " set theme
@@ -101,6 +104,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" ctrl +  to auto new-line some inline css
+nnoremap <C-m> :s/;\s*\(\S\)/;\r\1/g<CR>
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
 
 " config vim-airline.
 let g:airline_powerline_fonts=1
@@ -237,7 +246,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-terraform',
   \ 'coc-rust-analyzer',
-  \ 'coc-vetur',
   \ 'coc-sumneko-lua',
   \ 'coc-clangd',
   \ 'coc-tsserver',
