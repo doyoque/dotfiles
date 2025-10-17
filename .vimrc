@@ -267,3 +267,6 @@ command! -nargs=0 ClangFormat :CocCommand clangd.applyFix
 " golang stuff
 let g:go_fmt_command = "goimports"
 
+" indentation continuosly
+vnoremap < <gv
+vnoremap > >gv
