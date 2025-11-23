@@ -270,3 +270,37 @@ let g:go_fmt_command = "goimports"
 " indentation continuosly
 vnoremap < <gv
 vnoremap > >gv
+
+" Open terminal at bottom without extra split
+command! Term :botright terminal
+command! Termv :botright vertical terminal
+
+set splitbelow
+
+" Variable to track terminal state
+let g:term_height = 15
+let g:term_is_maximized = 0
+
+" Auto-resize terminal on open
+autocmd TerminalOpen * resize 15
+
+" Toggle terminal maximize/restore
+function! TermToggleMaximize()
+  if &buftype == 'terminal'
+    if g:term_is_maximized
+      execute 'resize ' . g:term_height
+      let g:term_is_maximized = 0
+    else
+      resize
+      let g:term_is_maximized = 1
+    endif
+  endif
+endfunction
+
+" Key mappings
+nnoremap <leader>t :Term<CR>
+nnoremap <leader>tm :call TermToggleMaximize()<CR>
+
+" Or use this in terminal mode too
+" <C-w>m -> ctrl + w then m button
+tnoremap <C-w>m <C-\><C-n>:call TermToggleMaximize()<CR>i

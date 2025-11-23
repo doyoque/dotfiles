@@ -33,11 +33,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # some env variables
-export PAT=
+export PAT=""
 export DIGITAL_OCEAN_ACCESS_TOKEN=
 export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
-export OPENAI_SECRET_KEY=
+
+export OPENAI_SECRET_KEY=""
+export PERPLEXCITY_SECRET_KEY=""
+
+export TWILIO_SECRET_AUTH=""
+export RESEND_API_KEY=""
 
 # some C aliases
 alias cc="gcc -Wall -save-temps"
@@ -46,4 +51,6 @@ alias stdc="echo -e '#include <iostream>\n\nint main() {\n\tprintf(\"hello world
 
 # some Github guide refer the pbcopy command but turns out it's only available on macOS
 alias pbcopy='xsel --clipboard --input'
+export PATH="$HOME/.local/bin:$PATH"
 
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
