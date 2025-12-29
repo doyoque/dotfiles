@@ -1,7 +1,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+# in case using Hyprland
+# if [[ -z $WAYLAND_DISPLAY && $XDG_VTNR -eq 1 ]]; then
+# 	exec Hyprland
+# fi
+
 # enjoy some flex :)
-neofetch
+# neofetch
 
 # some ohmyzsh configs
 ZSH_THEME="robbyrussell"
@@ -54,3 +59,17 @@ alias pbcopy='xsel --clipboard --input'
 export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - bash)"
+
+alias tmxr="tmuxinator"
+
+export PATH="$PATH:/snap/bin"
